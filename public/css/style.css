@@ -61,3 +61,12 @@
       height: 75px
 
     }
+
+
+    .item h2, .item p {
+      margin-bottom: .8em ;
+    }
+
+    .actions {
+      display: flex;
+    }

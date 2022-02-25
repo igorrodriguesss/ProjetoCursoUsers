@@ -48,6 +48,7 @@ app.post('/users/create', async (req, res) => {
 
 })
 
+// Buscando dados com where
 app.get('/users/:id', async (req, res) => {
   const id = req.params.id
 
@@ -56,6 +57,14 @@ app.get('/users/:id', async (req, res) => {
   res.render('userViews', {user})
 })
 
+// Deletando Registros
+app.post('/users/delete/:id', async (req, res) => {
+  const id = req.params.id; //
+
+  await User.destroy({raw: true, where: {id: id}})
+
+  res.redirect('/')
+})
 
 conn.sync().then(() => {
   app.listen(4000)  
